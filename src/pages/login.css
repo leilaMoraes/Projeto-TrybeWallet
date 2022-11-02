@@ -53,7 +53,7 @@ input::placeholder {
   font-size: 14px;
 }
 
-input:focus {
+input:focus , select:focus {
   outline-color: rgb(0, 59, 229);
 }
 

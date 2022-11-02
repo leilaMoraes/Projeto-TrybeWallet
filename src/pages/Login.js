@@ -13,7 +13,7 @@ class Login extends React.Component {
     showAlert: false,
   };
 
-  onInputChange = ({ target }) => {
+  handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value }, () => this.validation());
   };
@@ -61,7 +61,7 @@ class Login extends React.Component {
               data-testid="email-input"
               placeholder="E-mail"
               value={ email }
-              onChange={ this.onInputChange }
+              onChange={ this.handleChange }
             />
           </label>
           <label htmlFor="pwd" className="inputPwd">
@@ -73,7 +73,7 @@ class Login extends React.Component {
               data-testid="password-input"
               placeholder="Senha"
               value={ password }
-              onChange={ this.onInputChange }
+              onChange={ this.handleChange }
             />
           </label>
           { showAlert && <p className="message">Email e/ou senha inválidos</p> }
