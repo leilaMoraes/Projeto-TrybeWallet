@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { GiMoneyStack } from 'react-icons/gi';
 import { loginEmail } from '../redux/actions';
+import './login.css';
 
 class Login extends React.Component {
   state = {
@@ -44,15 +45,16 @@ class Login extends React.Component {
   render() {
     const { email, password, disabled, showAlert } = this.state;
     return (
-      <section>
-        <div>
-          <GiMoneyStack size={ 45 } className="react-icons" />
-          <h1 className="trybe">Trybe</h1>
-          <h1 className="wallet">Wallet</h1>
+      <div className="login">
+        <div className="title">
+          <GiMoneyStack size={ 50 } className="react-icons" />
+          <h1 className="trybe-login">Trybe</h1>
+          <h1 className="wallet-login">Wallet</h1>
         </div>
-        <div>
+        <div className="inputs">
           <label htmlFor="email">
             <input
+              className="input"
               type="email"
               name="email"
               id="email"
@@ -64,17 +66,19 @@ class Login extends React.Component {
           </label>
           <label htmlFor="pwd" className="inputPwd">
             <input
+              className="input"
               type="password"
               name="password"
               id="pwd"
               data-testid="password-input"
-              placeholder="senha"
+              placeholder="Senha"
               value={ password }
               onChange={ this.onInputChange }
             />
           </label>
-          { showAlert && <h2>Email e/ou senha inválidos</h2> }
+          { showAlert && <p className="message">Email e/ou senha inválidos</p> }
           <button
+            className="btn"
             type="button"
             disabled={ disabled }
             onClick={ this.handleClick }
@@ -82,7 +86,7 @@ class Login extends React.Component {
             Entrar
           </button>
         </div>
-      </section>
+      </div>
     );
   }
 }
