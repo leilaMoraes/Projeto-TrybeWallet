@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { GiMoneyStack } from 'react-icons/gi';
 import { loginEmail } from '../redux/actions';
 
 class Login extends React.Component {
@@ -43,39 +44,45 @@ class Login extends React.Component {
   render() {
     const { email, password, disabled, showAlert } = this.state;
     return (
-      <div>
-        <h1>Trybe Wallet</h1>
-        { showAlert && <h2>Email e/ou senha inválidos</h2> }
-        <label htmlFor="email">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            data-testid="email-input"
-            placeholder="E-mail"
-            value={ email }
-            onChange={ this.onInputChange }
-          />
-        </label>
-        <label htmlFor="pwd" className="inputPwd">
-          <input
-            type="password"
-            name="password"
-            id="pwd"
-            data-testid="password-input"
-            placeholder="senha"
-            value={ password }
-            onChange={ this.onInputChange }
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ disabled }
-          onClick={ this.handleClick }
-        >
-          Entrar
-        </button>
-      </div>
+      <section>
+        <div>
+          <GiMoneyStack size={ 45 } className="react-icons" />
+          <h1 className="trybe">Trybe</h1>
+          <h1 className="wallet">Wallet</h1>
+        </div>
+        <div>
+          <label htmlFor="email">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              data-testid="email-input"
+              placeholder="E-mail"
+              value={ email }
+              onChange={ this.onInputChange }
+            />
+          </label>
+          <label htmlFor="pwd" className="inputPwd">
+            <input
+              type="password"
+              name="password"
+              id="pwd"
+              data-testid="password-input"
+              placeholder="senha"
+              value={ password }
+              onChange={ this.onInputChange }
+            />
+          </label>
+          { showAlert && <h2>Email e/ou senha inválidos</h2> }
+          <button
+            type="button"
+            disabled={ disabled }
+            onClick={ this.handleClick }
+          >
+            Entrar
+          </button>
+        </div>
+      </section>
     );
   }
 }

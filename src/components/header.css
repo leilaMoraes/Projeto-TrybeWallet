@@ -1,0 +1,57 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 25px;
+}
+
+.div1 {
+  align-items: center;
+  display: flex;
+}
+
+.react-icons {
+  color: rgb(0, 59, 229);
+  transform: rotateY(180deg);
+}
+
+.trybe {
+  color: rgb(0, 59, 229);
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+.wallet {
+  color: rgb(47, 193, 140);
+  font-weight: 1000;
+  margin-left: 2px;
+}
+
+.div2 {
+  align-items: center;
+  display: flex;
+}
+
+.spending {
+  color: rgb(0, 59, 229);
+  font-weight: 700;
+  margin-left: 3px;
+}
+
+.total {
+  color: rgb(0, 59, 229);
+  margin-left: 3px;
+}
+
+.div3 {
+  align-items: center;
+  display: flex;
+}
+
+.email {
+  color: rgb(47, 193, 140);
+  margin-left: 4px;
+  size: 14px;
+}

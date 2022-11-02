@@ -1,14 +1,5 @@
-* {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700;800;900&family=Modern+Antiqua&display=swap') ;
 
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
+body {
+  font-family: Epilogue , Modern Antiqua , Helvetica, Arial, Verdana, Tahoma, sans-serif;
 }
