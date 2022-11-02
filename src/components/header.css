@@ -1,15 +1,19 @@
 .header {
-  align-items: center;
+  background-color: white;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-evenly;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 25px;
+  height: 482px;
+  justify-content: center;
+  margin-left: 121px;
+  margin-top: -97px;
+  width: 1037px;
 }
 
 .div1 {
   align-items: center;
   display: flex;
+  margin-right: 70px;
+  margin-top: -120px;
 }
 
 .react-icons {
@@ -32,6 +36,8 @@
 .div2 {
   align-items: center;
   display: flex;
+  margin-right: 70px;
+  margin-top: -120px;
 }
 
 .spending {
@@ -48,6 +54,7 @@
 .div3 {
   align-items: center;
   display: flex;
+  margin-top: -120px;
 }
 
 .email {
