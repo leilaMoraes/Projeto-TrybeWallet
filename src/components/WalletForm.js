@@ -38,10 +38,26 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleClick = () => {
-    const { value, method, tag, currency } = this.state;
+  callingApi = async () => {
+    const url = 'https://economia.awesomeapi.com.br/json/all';
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
+
+  handleClick = async () => {
+    const { value, description, currency, method, tag } = this.state;
     const { dispatch } = this.props;
-    dispatch(addExpenses({ value, currency, method, tag }));
+    const api = await this.callingApi();
+    const exchangeRates = api;
+    delete exchangeRates.USDT; // delete feito com a ajuda da Lígia Bicalho
+    dispatch(addExpenses({
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates }));
   };
 
   render() {

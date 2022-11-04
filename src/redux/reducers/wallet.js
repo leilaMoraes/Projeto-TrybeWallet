@@ -22,7 +22,7 @@ const wallet = (state = INITIAL_STATE, action) => {
   case FAILED_REQUEST:
     return { ...state, error: action.payload, isLoading: false };
   case ADD_EXPENSES:
-    return { ...state, expenses: [action.payload] };
+    return { ...state, expenses: action.payload };
   default:
     return state;
   }
