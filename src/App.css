@@ -3,7 +3,7 @@
 body {
   background-attachment: fixed;
   background-blend-mode: luminosity;
-  background-color: rgb(47, 193, 140);
+  background-color: rgba(47, 193, 140);
   background-image: url('background-trybewallet.png');
   background-position: left center;
   background-repeat: no-repeat;
@@ -11,4 +11,5 @@ body {
   display: flex;
   font-family: Epilogue , Modern Antiqua , Helvetica, Arial, Verdana, Tahoma, sans-serif;
   height: 95vh;
+  justify-content: center;
 }

@@ -45,48 +45,50 @@ class Login extends React.Component {
   render() {
     const { email, password, disabled, showAlert } = this.state;
     return (
-      <div className="login">
-        <div className="title">
-          <GiMoneyStack size={ 50 } className="react-icons" />
-          <h1 className="trybe-login">Trybe</h1>
-          <h1 className="wallet-login">Wallet</h1>
+      <section className="sec-login">
+        <div className="div-login">
+          <div className="div-title-login">
+            <GiMoneyStack size={ 50 } className="react-icons" />
+            <h1 className="trybe-title-login">Trybe</h1>
+            <h1 className="wallet-title-login">Wallet</h1>
+          </div>
+          <div className="div-inputs">
+            <label htmlFor="email">
+              <input
+                className="input-login"
+                type="email"
+                name="email"
+                id="email"
+                data-testid="email-input"
+                placeholder="E-mail"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="pwd" className="inputPwd">
+              <input
+                className="input-login"
+                type="password"
+                name="password"
+                id="pwd"
+                data-testid="password-input"
+                placeholder="Senha"
+                value={ password }
+                onChange={ this.handleChange }
+              />
+            </label>
+            { showAlert && <p className="message">Email e/ou senha inválidos</p> }
+            <button
+              className="btn-enter"
+              type="button"
+              disabled={ disabled }
+              onClick={ this.handleClick }
+            >
+              Entrar
+            </button>
+          </div>
         </div>
-        <div className="inputs">
-          <label htmlFor="email">
-            <input
-              className="input"
-              type="email"
-              name="email"
-              id="email"
-              data-testid="email-input"
-              placeholder="E-mail"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="pwd" className="inputPwd">
-            <input
-              className="input"
-              type="password"
-              name="password"
-              id="pwd"
-              data-testid="password-input"
-              placeholder="Senha"
-              value={ password }
-              onChange={ this.handleChange }
-            />
-          </label>
-          { showAlert && <p className="message">Email e/ou senha inválidos</p> }
-          <button
-            className="btn"
-            type="button"
-            disabled={ disabled }
-            onClick={ this.handleClick }
-          >
-            Entrar
-          </button>
-        </div>
-      </div>
+      </section>
     );
   }
 }

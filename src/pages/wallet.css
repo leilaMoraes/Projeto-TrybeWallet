@@ -1,0 +1,19 @@
+.div-btn-add {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+}
+
+.btn-add {
+  align-items: center;
+  background-color: rgb(47, 193, 140);
+  border-radius: 5px;
+  border-style: none;
+  border-width: 1px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: -65px;
+  width: 330px;
+}

@@ -1,0 +1,90 @@
+.sec-wallet-form {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+}
+
+.div-wallet-form {
+  align-items: center;
+  background-color: rgba(225, 229, 235, 0.49);
+  display: flex;
+  flex-wrap: wrap;
+  height: 134px;
+  justify-content: space-evenly;
+  margin-top: -230px;
+  width: 70%;
+}
+
+.labels-wallet-form {
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.labels-input {
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 35px;
+}
+
+.input-description {
+  background-color: rgba(225, 229, 235, 0);
+  border-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(0, 59, 229);
+  height: 30px;
+  margin-left: 10px;
+  padding: 0;
+  text-align: center;
+  width: 288.86px;
+}
+
+.select-tag {
+  border-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 35px;
+  width: 155px;
+}
+
+.input-value {
+  background-color: rgba(225, 229, 235, 0);
+  border-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(0, 59, 229);
+  height: 30px;
+  margin-left: 10px;
+  padding: 0;
+  text-align: center;
+  width: 158px;
+}
+
+.select-method {
+  border-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  height: 30px;
+  margin-left: 10px;
+  width: 228px;
+}
+
+.select-currency {
+  border-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  border-width: 1px;
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 35px;
+  width: 91px;
+}

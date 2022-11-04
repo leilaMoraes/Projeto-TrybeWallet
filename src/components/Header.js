@@ -11,24 +11,26 @@ class Header extends Component {
   render() {
     const { email } = this.props;
     return (
-      <section className="header">
-        <div className="div1">
-          <GiMoneyStack size={ 45 } className="react-icons" />
-          <h1 className="trybe">Trybe</h1>
-          <h1 className="wallet">Wallet</h1>
-        </div>
-        <div className="div2">
-          <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
-          <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
-          <p className="spending">Total de gastos:</p>
-          <p className="total" data-testid="total-field">{0}</p>
-          <p className="total" data-testid="header-currency-field">BRL</p>
-        </div>
-        <div className="div3">
-          <CgProfile color="rgb(47, 193, 140)" size={ 28 } />
-          <p className="email" data-testid="email-field">
-            {email}
-          </p>
+      <section className="sec-header">
+        <div className="div-header">
+          <div className="div-title-header">
+            <GiMoneyStack size={ 45 } className="react-icons" />
+            <h1 className="trybe-title">Trybe</h1>
+            <h1 className="wallet-title">Wallet</h1>
+          </div>
+          <div className="div-spending">
+            <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
+            <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
+            <p className="spending">Total de gastos:</p>
+            <p className="total" data-testid="total-field">{0}</p>
+            <p className="total" data-testid="header-currency-field">BRL</p>
+          </div>
+          <div className="div-email">
+            <CgProfile color="rgb(47, 193, 140)" size={ 28 } />
+            <p className="fixed-email" data-testid="email-field">
+              {email}
+            </p>
+          </div>
         </div>
       </section>
     );
