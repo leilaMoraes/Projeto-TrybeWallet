@@ -16,10 +16,17 @@
   display: flex;
 }
 
+.table-thead {
+  display: flex;
+}
+
+.table-tr {
+  display: flex;
+}
+
 .table-th {
-  align-items: center;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.641);
-  border-left: 2px solid rgba(255, 255, 255, 0.641);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
   color: white;
   font-size: 12px;
   font-weight: 700;
@@ -31,9 +38,5 @@
 
 th:nth-child( 1 ) {
   border-left: none;
-  margin-left: 80px;
-}
-
-th:nth-child( 9 ) {
-  margin-right: 80px;
+  margin-left: 23px;
 }

@@ -10,10 +10,14 @@ class Table extends Component {
       <section className="sec-table">
         <div className="div-table">
           <table className="table-head">
-            { tableHead.map((head, i) => (
-              <th className="table-th" key={ i }>
-                { head }
-              </th>)) }
+            <thead className="table-thead">
+              <tr className="table-tr">
+                { tableHead.map((head, i) => (
+                  <th className="table-th" key={ i }>
+                    { head }
+                  </th>)) }
+              </tr>
+            </thead>
           </table>
         </div>
       </section>

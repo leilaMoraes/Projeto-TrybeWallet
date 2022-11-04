@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrencies } from '../redux/actions';
+import { addExpenses, fetchCurrencies } from '../redux/actions';
 import './walletForm.css';
+import ButtonAdd from './ButtonAdd';
 
 const payMethods = [
   'Dinheiro',
@@ -37,6 +38,12 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   };
 
+  handleClick = () => {
+    const { value, method, tag, currency } = this.state;
+    const { dispatch } = this.props;
+    dispatch(addExpenses({ value, currency, method, tag }));
+  };
+
   render() {
     const { currencies, isLoading } = this.props;
     const { value, description, method, tag, currency } = this.state;
@@ -60,7 +67,7 @@ class WalletForm extends Component {
             Categoria da despesa
             <select
               className="select-tag"
-              name="type"
+              name="tag"
               id="type"
               data-testid="tag-input"
               value={ tag }
@@ -78,7 +85,7 @@ class WalletForm extends Component {
             <input
               className="input-value"
               type="number"
-              name="expense"
+              name="value"
               id="expense"
               data-testid="value-input"
               value={ value }
@@ -89,7 +96,7 @@ class WalletForm extends Component {
             Método de pagamento
             <select
               className="select-method"
-              name="payment"
+              name="method"
               id="payment"
               data-testid="method-input"
               value={ method }
@@ -119,6 +126,7 @@ class WalletForm extends Component {
               }
             </select>
           </label>
+          <ButtonAdd handleClick={ this.handleClick } />
         </div>
       </section>
     );

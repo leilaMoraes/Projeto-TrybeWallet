@@ -1,4 +1,5 @@
-import { REQUEST_CURRENCIES, RECEIVE_CURRENCIES, FAILED_REQUEST } from '../actions';
+import { REQUEST_CURRENCIES, RECEIVE_CURRENCIES,
+  FAILED_REQUEST, ADD_EXPENSES } from '../actions';
 
 const INITIAL_STATE = {
   isLoading: false,
@@ -20,6 +21,8 @@ const wallet = (state = INITIAL_STATE, action) => {
       isLoading: false };
   case FAILED_REQUEST:
     return { ...state, error: action.payload, isLoading: false };
+  case ADD_EXPENSES:
+    return { ...state, expenses: [action.payload] };
   default:
     return state;
   }
