@@ -11,7 +11,8 @@
   flex-wrap: wrap;
   height: 134px;
   justify-content: space-evenly;
-  margin-top: -230px;
+  margin-top: 156px;
+  position: absolute;
   width: 70%;
 }
 

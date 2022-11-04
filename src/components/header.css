@@ -10,6 +10,7 @@
   display: flex;
   height: 385px;
   justify-content: space-evenly;
+  position: fixed;
   width: 70%;
 }
 

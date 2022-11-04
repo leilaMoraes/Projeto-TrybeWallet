@@ -7,22 +7,33 @@
 .div-table {
   background-color: rgb(0, 59, 229);
   border-radius: 10px;
-  height: 300px;
+  height: 464px;
+  margin-top: 156px;
   width: 1155px;
 }
 
 .table-head {
   display: flex;
-  justify-content: space-evenly;
-
 }
 
-.table-thead {
+.table-th {
   align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.641);
+  border-left: 2px solid rgba(255, 255, 255, 0.641);
   color: white;
   font-size: 12px;
   font-weight: 700;
   height: 26.6;
-  margin-top: 30px;
+  margin-top: 250px;
+  padding: 5px;
   width: 110.93px;
+}
+
+th:nth-child( 1 ) {
+  border-left: none;
+  margin-left: 80px;
+}
+
+th:nth-child( 9 ) {
+  margin-right: 80px;
 }

@@ -11,7 +11,7 @@ class Table extends Component {
         <div className="div-table">
           <table className="table-head">
             { tableHead.map((head, i) => (
-              <th className="table-thead" key={ i }>
+              <th className="table-th" key={ i }>
                 { head }
               </th>)) }
           </table>
