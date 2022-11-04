@@ -20,7 +20,7 @@ const typeExpense = [
 
 class WalletForm extends Component {
   state = {
-    value: null,
+    value: 0,
     description: '',
     method: 'Dinheiro',
     tag: 'Alimentação',

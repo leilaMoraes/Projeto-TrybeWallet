@@ -1,0 +1,28 @@
+.sec-table {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+}
+
+.div-table {
+  background-color: rgb(0, 59, 229);
+  border-radius: 10px;
+  height: 300px;
+  width: 1155px;
+}
+
+.table-head {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.table-thead {
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  height: 26.6;
+  margin-top: 30px;
+  width: 110.93px;
+}
