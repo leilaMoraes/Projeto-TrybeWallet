@@ -9,7 +9,8 @@ import './header.css';
 
 class Header extends Component {
   render() {
-    const { email } = this.props;
+    const { email, ask } = this.props;
+    console.log(ask);
     return (
       <section className="sec-header">
         <div className="div-header">
@@ -22,7 +23,7 @@ class Header extends Component {
             <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
             <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
             <p className="spending">Total de gastos:</p>
-            <p className="total" data-testid="total-field">{0}</p>
+            <p className="total" data-testid="total-field">{ask}</p>
             <p className="total" data-testid="header-currency-field">BRL</p>
           </div>
           <div className="div-email">
@@ -38,11 +39,13 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  email: PropTypes.string.isRequired,
-};
+  email: PropTypes.string,
+  ask: PropTypes.string,
+}.isRequired;
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
+  ask: state.wallet.expenses.exchangeRates,
 });
 
 export default connect(mapStateToProps)(Header);

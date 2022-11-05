@@ -1,5 +1,6 @@
 .sec-table {
   display: flex;
+  height: 85vh;
   justify-content: center;
   width: 98vw;
 }
@@ -7,13 +8,14 @@
 .div-table {
   background-color: rgb(0, 59, 229);
   border-radius: 10px;
-  height: 464px;
+  height: 84%;
   margin-top: 156px;
-  width: 1155px;
+  width: 86%;
 }
 
 .table-head {
   display: flex;
+  justify-content: center;
 }
 
 .table-thead {
@@ -33,10 +35,9 @@
   height: 26.6;
   margin-top: 250px;
   padding: 5px;
-  width: 110.93px;
+  width: 7vw;
 }
 
 th:nth-child( 1 ) {
   border-left: none;
-  margin-left: 23px;
 }
