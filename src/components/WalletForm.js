@@ -46,12 +46,13 @@ class WalletForm extends Component {
   };
 
   handleClick = async () => {
+    this.setState({ value: 0, description: '' });
     const { value, description, currency, method, tag } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, expenses } = this.props;
     const api = await this.callingApi();
     const exchangeRates = api;
     delete exchangeRates.USDT; // delete feito com a ajuda da Lígia Bicalho
-    dispatch(addExpenses({
+    dispatch(addExpenses({ id: expenses.length,
       value,
       description,
       currency,
@@ -65,7 +66,7 @@ class WalletForm extends Component {
     const { value, description, method, tag, currency } = this.state;
     return (
       <section className="sec-wallet-form">
-        {isLoading && <h2>Carregando...</h2> }
+        {isLoading && <h2 className="loading">Carregando...</h2>}
         <div className="div-wallet-form">
           <label className="labels-input" htmlFor="description">
             Descrição da despesa
@@ -153,10 +154,13 @@ WalletForm.propTypes = {
   dispatch: PropTypes.func,
   currencies: PropTypes.arrayOf(PropTypes.string.isRequired),
   isLoading: PropTypes.bool,
+  expenses: PropTypes.arrayOf(PropTypes.string.isRequired),
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  isLoading: state.wallet.isLoading,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps)(WalletForm);
