@@ -1,14 +1,20 @@
 .table-tbody {
   display: flex;
   flex-direction: column;
-  height: 55vh;
-  justify-content: flex-end;
 }
 
 .table-tr-tbody {
   display: flex;
+  justify-content: center;
 }
 
 td {
+  border-bottom: 2px solid rgb(47, 193, 140);
   color: rgb(47, 193, 140);
+  font-size: 12px;
+  font-weight: 700;
+  height: 5.5vh;
+  margin-top: 10px;
+  padding: 5px;
+  width: 7.08vw;
 }
