@@ -1,0 +1,14 @@
+.table-tbody {
+  display: flex;
+  height: 55vh;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.table-tr-tbody {
+  display: flex;
+}
+
+td {
+  color: rgb(47, 193, 140);
+}

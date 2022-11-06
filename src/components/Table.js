@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './table.css';
+import TableBody from './TableBody';
 
 const tableHead = ['Descrição', 'Tag', 'Método de pagamento', 'Valor',
   'Moeda', 'Câmbio utilizado', 'Valor convertido',
   'Moeda de conversão', 'Editar/Excluir'];
+
 class Table extends Component {
   render() {
     return (
@@ -18,6 +20,7 @@ class Table extends Component {
                   </th>)) }
               </tr>
             </thead>
+            <TableBody />
           </table>
         </div>
       </section>
