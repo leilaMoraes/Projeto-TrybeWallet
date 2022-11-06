@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { BiEdit } from 'react-icons/bi';
+import { FaTrash } from 'react-icons/fa';
 import './tableBody.css';
 // elemento feito separado pq estava dando erro depth no table, ideia q tive vendo o pr da Mirella,
 
@@ -23,7 +25,24 @@ class TableBody extends Component {
                     .exchangeRates[expense.currency].ask).toFixed(2)}
                 </td>
                 <td>Real</td>
-                <td>{}</td>
+                <td>
+                  <button
+                    className="edit-btn"
+                    type="button"
+                    data-testid="edit-btn"
+                    onClick={ this.handleEditClick }
+                  >
+                    <BiEdit />
+                  </button>
+                  <button
+                    className="delete-btn"
+                    type="button"
+                    data-testid="delete-btn"
+                    onClick={ this.handleDeleteClick }
+                  >
+                    <FaTrash />
+                  </button>
+                </td>
               </tr>))}
       </tbody>
     );
