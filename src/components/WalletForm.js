@@ -21,7 +21,7 @@ const typeExpense = [
 
 class WalletForm extends Component {
   state = {
-    value: 0,
+    value: '',
     description: '',
     method: 'Dinheiro',
     tag: 'Alimentação',
@@ -46,7 +46,7 @@ class WalletForm extends Component {
   };
 
   handleClick = async () => {
-    this.setState({ value: 0, description: '' });
+    this.setState({ value: '', description: '' });
     const { value, description, currency, method, tag } = this.state;
     const { dispatch, expenses } = this.props;
     const api = await this.callingApi();

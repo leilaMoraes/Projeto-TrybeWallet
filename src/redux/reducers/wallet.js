@@ -17,8 +17,7 @@ const wallet = (state = INITIAL_STATE, action) => {
   case RECEIVE_CURRENCIES:
     return { ...state,
       isLoading: false,
-      currencies: Object.keys(action.payload).filter((currency) => currency !== 'USDT')
-        .map((coin) => coin) };
+      currencies: Object.keys(action.payload) };
   case FAILED_REQUEST:
     return { ...state, error: action.payload, isLoading: false };
   case ADD_EXPENSES:

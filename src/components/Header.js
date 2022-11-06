@@ -8,9 +8,38 @@ import { GiMoneyStack } from 'react-icons/gi';
 import './header.css';
 
 class Header extends Component {
+  state = {
+    sum: 0,
+  };
+
+  componentDidMount() {
+    this.getSum();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { expenses } = this.props;
+    if (prevProps.expenses !== expenses) {
+      this.getSum();
+    }
+  }
+
+  getSum = () => {
+    const { expenses } = this.props;
+    const newExpenses = [expenses[expenses.length - 1]];
+    if (expenses.length > 0) {
+      const { sum } = this.state;
+      const getValue = Number(newExpenses.map((el) => el.value));
+      const getCurrency = newExpenses.map((el) => el.currency).toString();
+      const getExchangeRates = newExpenses.map((el) => el.exchangeRates);
+      const getAsk = Number(getExchangeRates.map((el) => el[getCurrency].ask));
+      const getSum = (getValue * getAsk) + Number(sum);
+      this.setState({ sum: getSum.toFixed(2) });
+    }
+  };
+
   render() {
-    const { email, ask } = this.props;
-    console.log(ask);
+    const { email } = this.props;
+    const { sum } = this.state;
     return (
       <section className="sec-header">
         <div className="div-header">
@@ -23,7 +52,7 @@ class Header extends Component {
             <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
             <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
             <p className="spending">Total de gastos:</p>
-            <p className="total" data-testid="total-field">{ask}</p>
+            <p className="total" data-testid="total-field">{ sum }</p>
             <p className="total" data-testid="header-currency-field">BRL</p>
           </div>
           <div className="div-email">
@@ -40,12 +69,12 @@ class Header extends Component {
 
 Header.propTypes = {
   email: PropTypes.string,
-  ask: PropTypes.string,
+  expenses: PropTypes.object,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  ask: state.wallet.expenses.exchangeRates,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps)(Header);
