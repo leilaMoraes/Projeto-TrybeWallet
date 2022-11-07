@@ -3,6 +3,7 @@ export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 export const RECEIVE_CURRENCIES = 'RECEIVE_CURRENCIES';
 export const FAILED_REQUEST = 'FAILED_REQUEST';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
 
 export const loginEmail = (payload) => ({ type: ADD_EMAIL, payload });
 
@@ -14,6 +15,8 @@ export const receiveCurrencies = (payload) => (
 export const failedRequest = (error) => ({ type: FAILED_REQUEST, payload: error });
 
 export const addExpenses = (payload) => ({ type: ADD_EXPENSES, payload });
+
+export const deleteExpenses = (payload) => ({ type: DELETE_EXPENSES, payload });
 
 export function fetchCurrencies() {
   return async (dispatch) => {

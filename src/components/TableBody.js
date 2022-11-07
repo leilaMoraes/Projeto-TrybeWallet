@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { BiEdit } from 'react-icons/bi';
-import { FaTrash } from 'react-icons/fa';
+import Delete from '../images/Delete.png';
+import Edit from '../images/Edit.png';
+import { deleteExpenses } from '../redux/actions';
 import './tableBody.css';
 // elemento feito separado pq estava dando erro depth no table, ideia q tive vendo o pr da Mirella,
 
 class TableBody extends Component {
+  handleDeleteClick = ({ target: { id } }) => {
+    const { dispatch, expenses } = this.props;
+    const newExpense = expenses.filter((el) => el.id !== Number(id));
+    dispatch(deleteExpenses(newExpense));
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -27,20 +34,30 @@ class TableBody extends Component {
                 <td>Real</td>
                 <td>
                   <button
-                    className="edit-btn"
                     type="button"
                     data-testid="edit-btn"
+                    className="edit-btn"
+                    id={ expense.id }
                     onClick={ this.handleEditClick }
                   >
-                    <BiEdit />
+                    <img
+                      src={ Edit }
+                      alt="imagem de um lápis escrevendo em um papel, ambos na cor verde"
+                      id={ expense.id }
+                    />
                   </button>
                   <button
-                    className="delete-btn"
                     type="button"
                     data-testid="delete-btn"
+                    className="delete-btn"
+                    id={ expense.id }
                     onClick={ this.handleDeleteClick }
                   >
-                    <FaTrash />
+                    <img
+                      src={ Delete }
+                      alt="imagem de uma lixeira na cor vermelho bem claro, quase rosa"
+                      id={ expense.id }
+                    />
                   </button>
                 </td>
               </tr>))}
