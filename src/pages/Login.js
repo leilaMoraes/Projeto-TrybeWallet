@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { GiMoneyStack } from 'react-icons/gi';
 import { loginEmail } from '../redux/actions';
+import LogoTitle from '../images/LogoTitle.png';
 import './login.css';
 
 class Login extends React.Component {
@@ -48,9 +48,11 @@ class Login extends React.Component {
       <section className="sec-login">
         <div className="div-login">
           <div className="div-title-login">
-            <GiMoneyStack size={ 50 } className="react-icons" />
-            <h1 className="trybe-title-login">Trybe</h1>
-            <h1 className="wallet-title-login">Wallet</h1>
+            <img
+              className="title-login"
+              src={ LogoTitle }
+              alt="nota de diheiro com asas e o escrito Trybe Wallet"
+            />
           </div>
           <div className="div-inputs">
             <label htmlFor="email">

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { CgProfile } from 'react-icons/cg';
-import { HiMinusCircle } from 'react-icons/hi';
-import { FaCoins } from 'react-icons/fa';
-import { GiMoneyStack } from 'react-icons/gi';
+import LogoTitle from '../images/LogoTitle.png';
+import Coins from '../images/Coins.png';
 import './header.css';
 
 class Header extends Component {
@@ -41,13 +40,16 @@ class Header extends Component {
       <section className="sec-header">
         <div className="div-header">
           <div className="div-title-header">
-            <GiMoneyStack size={ 45 } className="react-icons" />
-            <h1 className="trybe-title">Trybe</h1>
-            <h1 className="wallet-title">Wallet</h1>
+            <img
+              src={ LogoTitle }
+              alt="nota de diheiro com asas e o escrito Trybe Wallet"
+            />
           </div>
           <div className="div-spending">
-            <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
-            <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
+            <img
+              src={ Coins }
+              alt="duas pequenas pilhas de moeda e um sinal de subtração"
+            />
             <p className="spending">Total de gastos:</p>
             <p className="total" data-testid="total-field">{ sum.toFixed(2) }</p>
             <p className="total" data-testid="header-currency-field">BRL</p>

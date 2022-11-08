@@ -19,24 +19,7 @@
   align-self: flex-start;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 55px;
-}
-
-.react-icons {
-  color: rgb(0, 59, 229);
-  transform: rotateY(180deg);
-}
-
-.trybe-title {
-  color: rgb(0, 59, 229);
-  font-weight: 300;
-  margin-left: 2px;
-}
-
-.wallet-title {
-  color: rgb(47, 193, 140);
-  font-weight: 1000;
-  margin-left: 2px;
+  margin-top: 48px;
 }
 
 .div-spending {

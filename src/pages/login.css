@@ -20,18 +20,8 @@
   display: flex;
 }
 
-.trybe-title-login {
-  color: rgb(0, 59, 229);
-  font-size: 40px;
-  font-weight: 300;
-  margin-left: 2px;
-}
-
-.wallet-title-login {
-  color: rgb(47, 193, 140);
-  font-size: 40px;
-  font-weight: 1000;
-  margin-left: 2px;
+.title-login {
+  margin-bottom: 45px;
 }
 
 .div-inputs {
