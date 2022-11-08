@@ -4,7 +4,7 @@ import './buttonAdd.css';
 
 class ButtonAdd extends React.Component {
   render() {
-    const { handleClick } = this.props;
+    const { handleClick, btnName } = this.props;
     return (
       <div>
         <div className="div-btn-add">
@@ -13,7 +13,7 @@ class ButtonAdd extends React.Component {
             type="button"
             onClick={ handleClick }
           >
-            Adicionar Despesa
+            {btnName}
           </button>
         </div>
       </div>
@@ -23,6 +23,7 @@ class ButtonAdd extends React.Component {
 
 ButtonAdd.propTypes = {
   handleClick: PropTypes.func,
+  btnName: PropTypes.string.isRequired,
 };
 
 ButtonAdd.defaultProps = {

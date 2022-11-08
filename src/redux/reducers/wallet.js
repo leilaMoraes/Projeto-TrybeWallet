@@ -1,5 +1,5 @@
 import { REQUEST_CURRENCIES, RECEIVE_CURRENCIES,
-  FAILED_REQUEST, ADD_EXPENSES, DELETE_EXPENSES } from '../actions';
+  FAILED_REQUEST, ADD_EXPENSES, DELETE_EXPENSES, EDIT_EXPENSES } from '../actions';
 
 const INITIAL_STATE = {
   isLoading: false,
@@ -17,13 +17,16 @@ const wallet = (state = INITIAL_STATE, action) => {
   case RECEIVE_CURRENCIES:
     return { ...state,
       isLoading: false,
-      currencies: Object.keys(action.payload) };
+      currencies: Object.keys(action.payload),
+      editor: false };
   case FAILED_REQUEST:
     return { ...state, error: action.payload, isLoading: false };
   case ADD_EXPENSES:
-    return { ...state, expenses: [...state.expenses, action.payload] };
+    return { ...state, editor: false, expenses: [...state.expenses, action.payload] };
   case DELETE_EXPENSES:
-    return { ...state, expenses: action.payload };
+    return { ...state, editor: false, expenses: action.payload };
+  case EDIT_EXPENSES:
+    return { ...state, editor: true, idToEdit: action.payload };
   default:
     return state;
   }

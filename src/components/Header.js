@@ -14,7 +14,7 @@ class Header extends Component {
 
   componentDidUpdate(prevProps) {
     const { expenses } = this.props;
-    if (prevProps.expenses !== expenses) {
+    if (prevProps.expenses !== expenses || prevProps.editor === true) {
       this.getSum();
     }
   }
@@ -67,11 +67,13 @@ class Header extends Component {
 Header.propTypes = {
   email: PropTypes.string,
   expenses: PropTypes.arrayOf(PropTypes.object.isRequired),
+  editor: PropTypes.bool,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
   expenses: state.wallet.expenses,
+  editor: state.wallet.editor,
 });
 
 export default connect(mapStateToProps)(Header);

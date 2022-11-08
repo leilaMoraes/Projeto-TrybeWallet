@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addExpenses, fetchCurrencies } from '../redux/actions';
+import { addExpenses, deleteExpenses, fetchCurrencies } from '../redux/actions';
 import './walletForm.css';
 import ButtonAdd from './ButtonAdd';
 
@@ -11,8 +11,10 @@ const payMethods = [
   'Cartão de débito',
 ];
 
+const typeFood = 'Alimentação';
+
 const typeExpense = [
-  'Alimentação',
+  typeFood,
   'Lazer',
   'Trabalho',
   'Transporte',
@@ -24,13 +26,27 @@ class WalletForm extends Component {
     value: '',
     description: '',
     method: 'Dinheiro',
-    tag: 'Alimentação',
+    tag: typeFood,
     currency: 'USD',
   };
 
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(fetchCurrencies());
+  }
+
+  componentDidUpdate(prevProps) {
+    const { expenses, idToEdit, editor } = this.props;
+    if (prevProps.editor !== editor && editor === true) {
+      const edit = expenses.find((el) => el.id === Number(idToEdit));
+      this.setState({
+        value: edit.value,
+        description: edit.description,
+        method: edit.method,
+        tag: edit.tag,
+        currency: edit.currency,
+      });
+    }
   }
 
   handleChange = ({ target }) => {
@@ -54,19 +70,37 @@ class WalletForm extends Component {
     delete exchangeRates.USDT; // delete feito com a ajuda da Lígia Bicalho
     dispatch(addExpenses({ id: expenses.length,
       value,
-      description,
       currency,
       method,
       tag,
+      description,
       exchangeRates }));
   };
 
+  handleEdit = () => {
+    this.setState({
+      value: '',
+      description: '',
+      method: 'Dinheiro',
+      tag: typeFood,
+      currency: 'USD',
+    });
+    const { dispatch, expenses, idToEdit } = this.props;
+    const { value, description, method, tag, currency } = this.state;
+    const newExpense = expenses.find((el) => el.id === Number(idToEdit));
+    newExpense.value = value;
+    newExpense.currency = currency;
+    newExpense.method = method;
+    newExpense.tag = tag;
+    newExpense.description = description;
+    dispatch(deleteExpenses(expenses));
+  };
+
   render() {
-    const { currencies, isLoading } = this.props;
+    const { currencies, editor } = this.props;
     const { value, description, method, tag, currency } = this.state;
     return (
       <section className="sec-wallet-form">
-        {isLoading && <h2 className="loading">Carregando...</h2>}
         <div className="div-wallet-form">
           <label className="labels-input" htmlFor="description">
             Descrição da despesa
@@ -143,7 +177,10 @@ class WalletForm extends Component {
               }
             </select>
           </label>
-          <ButtonAdd handleClick={ this.handleClick } />
+          <ButtonAdd
+            handleClick={ editor ? this.handleEdit : this.handleClick }
+            btnName={ editor ? 'Editar despesa' : 'Adicionar Despesa' }
+          />
         </div>
       </section>
     );
@@ -153,14 +190,16 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   dispatch: PropTypes.func,
   currencies: PropTypes.arrayOf(PropTypes.string.isRequired),
-  isLoading: PropTypes.bool,
   expenses: PropTypes.arrayOf(PropTypes.string.isRequired),
+  editor: PropTypes.bool,
+  idToEdit: PropTypes.number,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
-  isLoading: state.wallet.isLoading,
   expenses: state.wallet.expenses,
+  editor: state.wallet.editor,
+  idToEdit: state.wallet.idToEdit,
 });
 
 export default connect(mapStateToProps)(WalletForm);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Delete from '../images/Delete.png';
 import Edit from '../images/Edit.png';
-import { deleteExpenses } from '../redux/actions';
+import { deleteExpenses, editExpenses } from '../redux/actions';
 import './tableBody.css';
 // elemento feito separado pq estava dando erro depth no table, ideia q tive vendo o pr da Mirella,
 
@@ -14,11 +14,16 @@ class TableBody extends Component {
     dispatch(deleteExpenses(newExpense));
   };
 
+  handleEditClick = ({ target: { id } }) => {
+    const { dispatch } = this.props;
+    dispatch(editExpenses(id));
+  };
+
   render() {
-    const { expenses } = this.props;
+    const { expenses, editor } = this.props;
     return (
       <tbody className="table-tbody">
-        {expenses.length > 0
+        {expenses.length > 0 && !editor
             && expenses.map((expense) => (
               <tr className="table-tr-tbody" key={ expense.id }>
                 <td>{expense.description}</td>
@@ -69,10 +74,12 @@ class TableBody extends Component {
 TableBody.propTypes = {
   dispatch: PropTypes.func,
   expenses: PropTypes.arrayOf(PropTypes.object.isRequired),
+  editor: PropTypes.bool,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
+  editor: state.wallet.editor,
 });
 
 export default connect(mapStateToProps)(TableBody);
