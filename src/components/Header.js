@@ -12,10 +12,6 @@ class Header extends Component {
     sum: 0,
   };
 
-  componentDidMount() {
-    this.getSum();
-  }
-
   componentDidUpdate(prevProps) {
     const { expenses } = this.props;
     if (prevProps.expenses !== expenses) {
@@ -25,15 +21,16 @@ class Header extends Component {
 
   getSum = () => {
     const { expenses } = this.props;
-    const newExpenses = [expenses[expenses.length - 1]];
     if (expenses.length > 0) {
-      const { sum } = this.state;
-      const getValue = Number(newExpenses.map((el) => el.value));
-      const getCurrency = newExpenses.map((el) => el.currency).toString();
-      const getExchangeRates = newExpenses.map((el) => el.exchangeRates);
-      const getAsk = Number(getExchangeRates.map((el) => el[getCurrency].ask));
-      const getSum = (getValue * getAsk) + Number(sum);
-      this.setState({ sum: getSum.toFixed(2) });
+      const getSum = expenses.reduce((acc, curr) => {
+        const getValue = Number(curr.value);
+        const getCurrency = curr.currency.toString();
+        const getAsk = Number(curr.exchangeRates[getCurrency].ask);
+        return Number(acc) + (getValue * getAsk);
+      }, 0);
+      this.setState({ sum: getSum });
+    } else {
+      this.setState({ sum: 0 });
     }
   };
 
@@ -52,7 +49,7 @@ class Header extends Component {
             <FaCoins color="rgb(0, 59, 229)" size={ 28 } />
             <HiMinusCircle color="rgb(0, 59, 229)" size={ 14 } />
             <p className="spending">Total de gastos:</p>
-            <p className="total" data-testid="total-field">{ sum }</p>
+            <p className="total" data-testid="total-field">{ sum.toFixed(2) }</p>
             <p className="total" data-testid="header-currency-field">BRL</p>
           </div>
           <div className="div-email">
