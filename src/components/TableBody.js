@@ -20,10 +20,10 @@ class TableBody extends Component {
   };
 
   render() {
-    const { expenses, editor } = this.props;
+    const { expenses } = this.props;
     return (
       <tbody className="table-tbody">
-        {expenses.length > 0 && !editor
+        {expenses.length > 0
             && expenses.map((expense) => (
               <tr className="table-tr-tbody" key={ expense.id }>
                 <td>{expense.description}</td>
@@ -74,12 +74,10 @@ class TableBody extends Component {
 TableBody.propTypes = {
   dispatch: PropTypes.func,
   expenses: PropTypes.arrayOf(PropTypes.object.isRequired),
-  editor: PropTypes.bool,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
-  editor: state.wallet.editor,
 });
 
 export default connect(mapStateToProps)(TableBody);

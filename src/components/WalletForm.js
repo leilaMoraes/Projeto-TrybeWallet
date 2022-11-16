@@ -28,6 +28,7 @@ class WalletForm extends Component {
     method: 'Dinheiro',
     tag: typeFood,
     currency: 'USD',
+    id: 0,
   };
 
   componentDidMount() {
@@ -62,13 +63,15 @@ class WalletForm extends Component {
   };
 
   handleClick = async () => {
-    this.setState({ value: '', description: '' });
-    const { value, description, currency, method, tag } = this.state;
-    const { dispatch, expenses } = this.props;
+    const { dispatch } = this.props;
+    this.setState((prevState) => ({ value: '',
+      description: '',
+      id: prevState.id + 1 }));
+    const { value, description, currency, method, tag, id } = this.state;
     const api = await this.callingApi();
     const exchangeRates = api;
     delete exchangeRates.USDT; // delete feito com a ajuda da Lígia Bicalho
-    dispatch(addExpenses({ id: expenses.length,
+    dispatch(addExpenses({ id,
       value,
       currency,
       method,
